@@ -55,11 +55,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Physics Categories
     struct PhysicsCategories {
         static let None : UInt32 = 0
+        
         static let Player : UInt32 = 0b1 // 1
         static let RapidFire : UInt32 = 0b10 // 2
         static let Bullet : UInt32 = 0b100 // 4
-        static let RainbowEnemy : UInt32 = 0b1000 // 8
-        static let Enemy : UInt32 = 0b10000 // 16
+        
+        static let RainbowCarBullet : UInt32 = 0b1000 // 8
+        static let RainbowEnemy : UInt32 = 0b10000 // 16
+        static let Enemy : UInt32 = 0b100000 // 32
     }
     
     // Generates Random Number
@@ -481,6 +484,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bulletSequence = SKAction.sequence([bulletSound, moveBullet, deleteBullet])
         
         bullet.runAction(bulletSequence)
+        
+    }
+    
+    func rainbowCarBullet(){
+        
+        // Bullet Init
+        let rainbowCarBullet = SKSpriteNode(imageNamed: "rainbowCarBullet")
         
     }
     
