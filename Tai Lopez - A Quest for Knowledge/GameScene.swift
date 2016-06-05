@@ -494,7 +494,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rainbowCarBullet = SKSpriteNode(imageNamed: "rainbowCarBullet")
         rainbowCarBullet.name = "Money"
         rainbowCarBullet.setScale(1.5)
-        rainbowCarBullet.position
+        rainbowCarBullet.position = CGPoint(x: rainbowEnemy.position.x, y: rainbowEnemy.position.y)
+        rainbowCarBullet.zPosition = 1
+        rainbowCarBullet.physicsBody = SKPhysicsBody(rectangleOfSize: rainbowCarBullet.size)
+        rainbowCarBullet.physicsBody!.affectedByGravity = false
+        rainbowCarBullet.physicsBody!.categoryBitMask = PhysicsCategories.RainbowCarBullet
+        rainbowCarBullet.physicsBody!.collisionBitMask = PhysicsCategories.None
+        rainbowCarBullet.physicsBody!.contactTestBitMask = PhysicsCategories.Player | PhysicsCategories.Bullet
         
     }
     
