@@ -217,11 +217,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "Score: \(gameScore)"
         
         if gameScore == 5 || gameScore == 10 || gameScore == 15 || gameScore == 20 || gameScore == 30
-            || gameScore == 50 || gameScore == 60 || gameScore == 75 || gameScore == 100 || gameScore == 200 {
+            || gameScore == 50 || gameScore == 60 || gameScore == 75 || gameScore == 100 {
             startNewLevel()
         }
         
-        if gameScore % 5 == 0 {
+        if gameScore % 2 == 0 {
             spawnRapidFire()
         }
         
@@ -424,8 +424,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             lvlDuration = 0.6
         case 10:
             lvlDuration = 0.5
-        case 11:
-            self.speed = 2
         default:
             lvlDuration = 0.5
             print("Level Info Invalid")
@@ -569,7 +567,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
          
             // Checks if the game is still going + Checks if there are bullets in bullet bank + Checks if not touching Tai Lopez
-            if currentGameState == gameState.inGame && bulletBank != 0 && self.speed == 1
+            if currentGameState == gameState.inGame && bulletBank != 0 && self.speed != 0
                 && !pauseButton.containsPoint(pointOfTouch) && !player.containsPoint(pointOfTouch) && !enableRapidFire{
                 fireBullet()
                 removeBulletBank()
