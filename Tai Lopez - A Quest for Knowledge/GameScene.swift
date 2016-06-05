@@ -36,7 +36,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let bulletBankLabel = SKLabelNode(fontNamed: "LemonMilk")
     
     let player = SKSpriteNode(imageNamed: "player")
-    var playerLocation = CGPoint()
+
+    let rainbowEnemy = SKSpriteNode(imageNamed: "rainbowEnemy")
     
     var hitPauseButton: Bool = false
     let pauseButton = SKSpriteNode(imageNamed: "pauseButton")
@@ -491,6 +492,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Bullet Init
         let rainbowCarBullet = SKSpriteNode(imageNamed: "rainbowCarBullet")
+        rainbowCarBullet.name = "Money"
+        rainbowCarBullet.setScale(1.5)
+        rainbowCarBullet.position
         
     }
     
@@ -546,7 +550,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let endPoint = CGPoint(x: self.size.width * 1.2, y: self.size.height * 0.8)
         
         // Rainbow Enemy Init
-        let rainbowEnemy = SKSpriteNode(imageNamed: "rainbowEnemy")
         rainbowEnemy.name = "Bugatti"
         rainbowEnemy.setScale(1.5)
         rainbowEnemy.position = startPoint
