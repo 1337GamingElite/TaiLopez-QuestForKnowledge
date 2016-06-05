@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		521A86651D00E880000C4EE7 /* Game Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521A86641D00E880000C4EE7 /* Game Launch.storyboard */; };
+		522A8F561CF7308700E4586B /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A8F551CF7308700E4586B /* MenuScene.swift */; };
+		529A8DA51CF7803900F14120 /* HowToPlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A8DA41CF7803900F14120 /* HowToPlayScene.swift */; };
+		529A8DA71CF7872A00F14120 /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 529A8DA61CF7872A00F14120 /* LemonMilk.otf */; };
+		52C651D71CF6592200B394C0 /* Lobster 1.4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52C651D61CF6592200B394C0 /* Lobster 1.4.otf */; };
+		52C651D91CF668DE00B394C0 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C651D81CF668DE00B394C0 /* GameOverScene.swift */; };
+		52C7506A1CF5DC050043D33B /* bulletHit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52C750691CF5DC050043D33B /* bulletHit.wav */; };
+		52C7506C1CF5DC0B0043D33B /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52C7506B1CF5DC0B0043D33B /* lose.wav */; };
+		52D56EA41CF51CD6002E1CE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D56EA31CF51CD6002E1CE8 /* AppDelegate.swift */; };
+		52D56EA61CF51CD6002E1CE8 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 52D56EA51CF51CD6002E1CE8 /* GameScene.sks */; };
+		52D56EA81CF51CD6002E1CE8 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D56EA71CF51CD6002E1CE8 /* GameScene.swift */; };
+		52D56EAA1CF51CD6002E1CE8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D56EA91CF51CD6002E1CE8 /* GameViewController.swift */; };
+		52D56EAD1CF51CD6002E1CE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D56EAB1CF51CD6002E1CE8 /* Main.storyboard */; };
+		52D56EAF1CF51CD6002E1CE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52D56EAE1CF51CD6002E1CE8 /* Assets.xcassets */; };
+		52D56EB21CF51CD6002E1CE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52D56EB01CF51CD6002E1CE8 /* LaunchScreen.storyboard */; };
+		52D56EBD1CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D56EBC1CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeTests.swift */; };
+		52D56EC81CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D56EC71CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeUITests.swift */; };
+		52D56ED61CF52D96002E1CE8 /* bulletsound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 52D56ED51CF52D96002E1CE8 /* bulletsound.wav */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52D56EB91CF51CD6002E1CE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52D56E981CF51CD5002E1CE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52D56E9F1CF51CD5002E1CE8;
+			remoteInfo = "Tai Lopez - A Quest for Knowledge";
+		};
+		52D56EC41CF51CD6002E1CE8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52D56E981CF51CD5002E1CE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52D56E9F1CF51CD5002E1CE8;
+			remoteInfo = "Tai Lopez - A Quest for Knowledge";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		521A86641D00E880000C4EE7 /* Game Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Game Launch.storyboard"; path = "Tai Lopez - A Quest for Knowledge/Game Launch.storyboard"; sourceTree = "<group>"; };
+		522A8F551CF7308700E4586B /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		529A8DA41CF7803900F14120 /* HowToPlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayScene.swift; sourceTree = "<group>"; };
+		529A8DA61CF7872A00F14120 /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
+		52C651D61CF6592200B394C0 /* Lobster 1.4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster 1.4.otf"; sourceTree = "<group>"; };
+		52C651D81CF668DE00B394C0 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		52C750691CF5DC050043D33B /* bulletHit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bulletHit.wav; sourceTree = "<group>"; };
+		52C7506B1CF5DC0B0043D33B /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
+		52D56EA01CF51CD5002E1CE8 /* Tai Lopez - A Quest for Knowledge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tai Lopez - A Quest for Knowledge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D56EA31CF51CD6002E1CE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52D56EA51CF51CD6002E1CE8 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		52D56EA71CF51CD6002E1CE8 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		52D56EA91CF51CD6002E1CE8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		52D56EAC1CF51CD6002E1CE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52D56EAE1CF51CD6002E1CE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52D56EB11CF51CD6002E1CE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52D56EB31CF51CD6002E1CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52D56EB81CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tai Lopez - A Quest for KnowledgeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D56EBC1CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tai_Lopez___A_Quest_for_KnowledgeTests.swift"; sourceTree = "<group>"; };
+		52D56EBE1CF51CD6002E1CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52D56EC31CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tai Lopez - A Quest for KnowledgeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D56EC71CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tai_Lopez___A_Quest_for_KnowledgeUITests.swift"; sourceTree = "<group>"; };
+		52D56EC91CF51CD6002E1CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52D56ED51CF52D96002E1CE8 /* bulletsound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bulletsound.wav; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52D56E9D1CF51CD5002E1CE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52D56EB51CF51CD6002E1CE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52D56EC01CF51CD6002E1CE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52D56E971CF51CD5002E1CE8 = {
+			isa = PBXGroup;
+			children = (
+				521A86641D00E880000C4EE7 /* Game Launch.storyboard */,
+				52D56EA21CF51CD6002E1CE8 /* Tai Lopez - A Quest for Knowledge */,
+				52D56EBB1CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeTests */,
+				52D56EC61CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeUITests */,
+				52D56EA11CF51CD5002E1CE8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52D56EA11CF51CD5002E1CE8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52D56EA01CF51CD5002E1CE8 /* Tai Lopez - A Quest for Knowledge.app */,
+				52D56EB81CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeTests.xctest */,
+				52D56EC31CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52D56EA21CF51CD6002E1CE8 /* Tai Lopez - A Quest for Knowledge */ = {
+			isa = PBXGroup;
+			children = (
+				52D56EA31CF51CD6002E1CE8 /* AppDelegate.swift */,
+				52D56EA51CF51CD6002E1CE8 /* GameScene.sks */,
+				52D56EA71CF51CD6002E1CE8 /* GameScene.swift */,
+				52C651D81CF668DE00B394C0 /* GameOverScene.swift */,
+				522A8F551CF7308700E4586B /* MenuScene.swift */,
+				529A8DA41CF7803900F14120 /* HowToPlayScene.swift */,
+				52D56EA91CF51CD6002E1CE8 /* GameViewController.swift */,
+				52D56ED51CF52D96002E1CE8 /* bulletsound.wav */,
+				52C651D61CF6592200B394C0 /* Lobster 1.4.otf */,
+				529A8DA61CF7872A00F14120 /* LemonMilk.otf */,
+				52C750691CF5DC050043D33B /* bulletHit.wav */,
+				52C7506B1CF5DC0B0043D33B /* lose.wav */,
+				52D56EAB1CF51CD6002E1CE8 /* Main.storyboard */,
+				52D56EAE1CF51CD6002E1CE8 /* Assets.xcassets */,
+				52D56EB01CF51CD6002E1CE8 /* LaunchScreen.storyboard */,
+				52D56EB31CF51CD6002E1CE8 /* Info.plist */,
+			);
+			path = "Tai Lopez - A Quest for Knowledge";
+			sourceTree = "<group>";
+		};
+		52D56EBB1CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeTests */ = {
+			isa = PBXGroup;
+			children = (
+				52D56EBC1CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeTests.swift */,
+				52D56EBE1CF51CD6002E1CE8 /* Info.plist */,
+			);
+			path = "Tai Lopez - A Quest for KnowledgeTests";
+			sourceTree = "<group>";
+		};
+		52D56EC61CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				52D56EC71CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeUITests.swift */,
+				52D56EC91CF51CD6002E1CE8 /* Info.plist */,
+			);
+			path = "Tai Lopez - A Quest for KnowledgeUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52D56E9F1CF51CD5002E1CE8 /* Tai Lopez - A Quest for Knowledge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52D56ECC1CF51CD6002E1CE8 /* Build configuration list for PBXNativeTarget "Tai Lopez - A Quest for Knowledge" */;
+			buildPhases = (
+				52D56E9C1CF51CD5002E1CE8 /* Sources */,
+				52D56E9D1CF51CD5002E1CE8 /* Frameworks */,
+				52D56E9E1CF51CD5002E1CE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Tai Lopez - A Quest for Knowledge";
+			productName = "Tai Lopez - A Quest for Knowledge";
+			productReference = 52D56EA01CF51CD5002E1CE8 /* Tai Lopez - A Quest for Knowledge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52D56EB71CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52D56ECF1CF51CD6002E1CE8 /* Build configuration list for PBXNativeTarget "Tai Lopez - A Quest for KnowledgeTests" */;
+			buildPhases = (
+				52D56EB41CF51CD6002E1CE8 /* Sources */,
+				52D56EB51CF51CD6002E1CE8 /* Frameworks */,
+				52D56EB61CF51CD6002E1CE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52D56EBA1CF51CD6002E1CE8 /* PBXTargetDependency */,
+			);
+			name = "Tai Lopez - A Quest for KnowledgeTests";
+			productName = "Tai Lopez - A Quest for KnowledgeTests";
+			productReference = 52D56EB81CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		52D56EC21CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52D56ED21CF51CD6002E1CE8 /* Build configuration list for PBXNativeTarget "Tai Lopez - A Quest for KnowledgeUITests" */;
+			buildPhases = (
+				52D56EBF1CF51CD6002E1CE8 /* Sources */,
+				52D56EC01CF51CD6002E1CE8 /* Frameworks */,
+				52D56EC11CF51CD6002E1CE8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52D56EC51CF51CD6002E1CE8 /* PBXTargetDependency */,
+			);
+			name = "Tai Lopez - A Quest for KnowledgeUITests";
+			productName = "Tai Lopez - A Quest for KnowledgeUITests";
+			productReference = 52D56EC31CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52D56E981CF51CD5002E1CE8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = 1337GamingElite;
+				TargetAttributes = {
+					52D56E9F1CF51CD5002E1CE8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = S6RE9E846R;
+					};
+					52D56EB71CF51CD6002E1CE8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = S6RE9E846R;
+						TestTargetID = 52D56E9F1CF51CD5002E1CE8;
+					};
+					52D56EC21CF51CD6002E1CE8 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = S6RE9E846R;
+						TestTargetID = 52D56E9F1CF51CD5002E1CE8;
+					};
+				};
+			};
+			buildConfigurationList = 52D56E9B1CF51CD5002E1CE8 /* Build configuration list for PBXProject "Tai Lopez - A Quest for Knowledge" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52D56E971CF51CD5002E1CE8;
+			productRefGroup = 52D56EA11CF51CD5002E1CE8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52D56E9F1CF51CD5002E1CE8 /* Tai Lopez - A Quest for Knowledge */,
+				52D56EB71CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeTests */,
+				52D56EC21CF51CD6002E1CE8 /* Tai Lopez - A Quest for KnowledgeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52D56E9E1CF51CD5002E1CE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52C7506A1CF5DC050043D33B /* bulletHit.wav in Resources */,
+				52D56ED61CF52D96002E1CE8 /* bulletsound.wav in Resources */,
+				529A8DA71CF7872A00F14120 /* LemonMilk.otf in Resources */,
+				52D56EA61CF51CD6002E1CE8 /* GameScene.sks in Resources */,
+				52C7506C1CF5DC0B0043D33B /* lose.wav in Resources */,
+				52C651D71CF6592200B394C0 /* Lobster 1.4.otf in Resources */,
+				52D56EB21CF51CD6002E1CE8 /* LaunchScreen.storyboard in Resources */,
+				52D56EAF1CF51CD6002E1CE8 /* Assets.xcassets in Resources */,
+				521A86651D00E880000C4EE7 /* Game Launch.storyboard in Resources */,
+				52D56EAD1CF51CD6002E1CE8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52D56EB61CF51CD6002E1CE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52D56EC11CF51CD6002E1CE8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52D56E9C1CF51CD5002E1CE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D56EA81CF51CD6002E1CE8 /* GameScene.swift in Sources */,
+				52D56EAA1CF51CD6002E1CE8 /* GameViewController.swift in Sources */,
+				522A8F561CF7308700E4586B /* MenuScene.swift in Sources */,
+				52C651D91CF668DE00B394C0 /* GameOverScene.swift in Sources */,
+				529A8DA51CF7803900F14120 /* HowToPlayScene.swift in Sources */,
+				52D56EA41CF51CD6002E1CE8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52D56EB41CF51CD6002E1CE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D56EBD1CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52D56EBF1CF51CD6002E1CE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52D56EC81CF51CD6002E1CE8 /* Tai_Lopez___A_Quest_for_KnowledgeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52D56EBA1CF51CD6002E1CE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52D56E9F1CF51CD5002E1CE8 /* Tai Lopez - A Quest for Knowledge */;
+			targetProxy = 52D56EB91CF51CD6002E1CE8 /* PBXContainerItemProxy */;
+		};
+		52D56EC51CF51CD6002E1CE8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52D56E9F1CF51CD5002E1CE8 /* Tai Lopez - A Quest for Knowledge */;
+			targetProxy = 52D56EC41CF51CD6002E1CE8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52D56EAB1CF51CD6002E1CE8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52D56EAC1CF51CD6002E1CE8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52D56EB01CF51CD6002E1CE8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52D56EB11CF51CD6002E1CE8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52D56ECA1CF51CD6002E1CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52D56ECB1CF51CD6002E1CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52D56ECD1CF51CD6002E1CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Tai Lopez - A Quest for Knowledge/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.1337gamingelte.tailopez;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52D56ECE1CF51CD6002E1CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "Tai Lopez - A Quest for Knowledge/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.1337gamingelte.tailopez;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		52D56ED01CF51CD6002E1CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Tai Lopez - A Quest for KnowledgeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.1337gamingelite.Tai-Lopez---A-Quest-for-KnowledgeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tai Lopez - A Quest for Knowledge.app/Tai Lopez - A Quest for Knowledge";
+			};
+			name = Debug;
+		};
+		52D56ED11CF51CD6002E1CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Tai Lopez - A Quest for KnowledgeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.1337gamingelite.Tai-Lopez---A-Quest-for-KnowledgeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tai Lopez - A Quest for Knowledge.app/Tai Lopez - A Quest for Knowledge";
+			};
+			name = Release;
+		};
+		52D56ED31CF51CD6002E1CE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = "Tai Lopez - A Quest for KnowledgeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.1337gamingelite.Tai-Lopez---A-Quest-for-KnowledgeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Tai Lopez - A Quest for Knowledge";
+			};
+			name = Debug;
+		};
+		52D56ED41CF51CD6002E1CE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Tai Lopez - A Quest for KnowledgeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.1337gamingelite.Tai-Lopez---A-Quest-for-KnowledgeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Tai Lopez - A Quest for Knowledge";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52D56E9B1CF51CD5002E1CE8 /* Build configuration list for PBXProject "Tai Lopez - A Quest for Knowledge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D56ECA1CF51CD6002E1CE8 /* Debug */,
+				52D56ECB1CF51CD6002E1CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52D56ECC1CF51CD6002E1CE8 /* Build configuration list for PBXNativeTarget "Tai Lopez - A Quest for Knowledge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D56ECD1CF51CD6002E1CE8 /* Debug */,
+				52D56ECE1CF51CD6002E1CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52D56ECF1CF51CD6002E1CE8 /* Build configuration list for PBXNativeTarget "Tai Lopez - A Quest for KnowledgeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D56ED01CF51CD6002E1CE8 /* Debug */,
+				52D56ED11CF51CD6002E1CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52D56ED21CF51CD6002E1CE8 /* Build configuration list for PBXNativeTarget "Tai Lopez - A Quest for KnowledgeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52D56ED31CF51CD6002E1CE8 /* Debug */,
+				52D56ED41CF51CD6002E1CE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52D56E981CF51CD5002E1CE8 /* Project object */;
+}
