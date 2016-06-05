@@ -36,8 +36,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let bulletBankLabel = SKLabelNode(fontNamed: "LemonMilk")
     
     let player = SKSpriteNode(imageNamed: "player")
-
-    let rainbowEnemy = SKSpriteNode(imageNamed: "rainbowEnemy")
     
     var hitPauseButton: Bool = false
     let pauseButton = SKSpriteNode(imageNamed: "pauseButton")
@@ -60,10 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         static let Player : UInt32 = 0b1 // 1
         static let RapidFire : UInt32 = 0b10 // 2
         static let Bullet : UInt32 = 0b100 // 4
-        
-        static let RainbowCarBullet : UInt32 = 0b1000 // 8
-        static let RainbowEnemy : UInt32 = 0b10000 // 16
-        static let Enemy : UInt32 = 0b100000 // 32
+        static let Enemy : UInt32 = 0b1000 // 8
     }
     
     // Generates Random Number
@@ -274,10 +269,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             enemy.removeAllActions()
         }
         
-        // Stops Rainbow Bullet
+        // Stops Rainbow Enemy
         self.enumerateChildNodesWithName("Bugatti"){
             rainbowEnemy, stop in
             rainbowEnemy.removeAllActions()
+        }
+        
+        // Stops Rainbow Enemy Bullets
+        self.enumerateChildNodesWithName("Money"){
+            rainbowCarBullet, stop in
+            rainbowCarBullet.removeAllActions()
         }
         
         // Goes to Game Over screen
@@ -313,24 +314,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Enemy Hits Player
         if body1.categoryBitMask == PhysicsCategories.Player && body2.categoryBitMask == PhysicsCategories.Enemy{
-            
-            if body1.node != nil {
-                spawnKnowlegdeLose(body1.node!.position)
-            }
-            
-            if body2.node != nil {
-                spawnKnowlegdeLose(body2.node!.position)
-            }
-            
-            body1.node?.removeFromParent()
-            body2.node?.removeFromParent()
-            
-            gameOver()
-            
-        }
-        
-        // Player Hits Rainbow Enemy
-        if body1.categoryBitMask == PhysicsCategories.Player && body2.categoryBitMask == PhysicsCategories.RainbowEnemy{
             
             if body1.node != nil {
                 spawnKnowlegdeLose(body1.node!.position)
@@ -449,7 +432,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // Spawns Enemy
-        let spawn = SKAction.runBlock(spawnRainbowEnemy)
+        let spawn = SKAction.runBlock(spawnEnemy)
         // Spawn Wait Time
         let waitToSpawn = SKAction.waitForDuration(lvlDuration)
         
@@ -485,22 +468,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bulletSequence = SKAction.sequence([bulletSound, moveBullet, deleteBullet])
         
         bullet.runAction(bulletSequence)
-        
-    }
-    
-    func rainbowCarBullet(){
-        
-        // Bullet Init
-        let rainbowCarBullet = SKSpriteNode(imageNamed: "rainbowCarBullet")
-        rainbowCarBullet.name = "Money"
-        rainbowCarBullet.setScale(1.5)
-        rainbowCarBullet.position = CGPoint(x: rainbowEnemy.position.x, y: rainbowEnemy.position.y)
-        rainbowCarBullet.zPosition = 1
-        rainbowCarBullet.physicsBody = SKPhysicsBody(rectangleOfSize: rainbowCarBullet.size)
-        rainbowCarBullet.physicsBody!.affectedByGravity = false
-        rainbowCarBullet.physicsBody!.categoryBitMask = PhysicsCategories.RainbowCarBullet
-        rainbowCarBullet.physicsBody!.collisionBitMask = PhysicsCategories.None
-        rainbowCarBullet.physicsBody!.contactTestBitMask = PhysicsCategories.Player | PhysicsCategories.Bullet
         
     }
     
@@ -546,36 +513,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let amountToRotate = atan2(dy, dx)
         enemy.zRotation = amountToRotate
-        
-    }
-    
-    func spawnRainbowEnemy(){
-        
-        // Location Generation
-        let startPoint = CGPoint(x: -self.size.width * 0.2, y: self.size.height * 0.8)
-        let endPoint = CGPoint(x: self.size.width * 1.2, y: self.size.height * 0.8)
-        
-        // Rainbow Enemy Init
-        rainbowEnemy.name = "Bugatti"
-        rainbowEnemy.setScale(1.5)
-        rainbowEnemy.position = startPoint
-        rainbowEnemy.zPosition = 2
-        rainbowEnemy.physicsBody = SKPhysicsBody(rectangleOfSize: rainbowEnemy.size)
-        rainbowEnemy.physicsBody!.affectedByGravity = false
-        rainbowEnemy.physicsBody!.categoryBitMask = PhysicsCategories.RainbowEnemy
-        rainbowEnemy.physicsBody!.collisionBitMask = PhysicsCategories.None
-        rainbowEnemy.physicsBody!.contactTestBitMask = PhysicsCategories.Player | PhysicsCategories.Bullet
-        self.addChild(rainbowEnemy)
-        
-        // Movement
-        let moveRainbowEnemy = SKAction.moveTo(endPoint, duration: 10)
-        let deleteRainbowEnemy = SKAction.removeFromParent()
-        let getRetarted = SKAction.runBlock(getDumber)
-        let rainbowEnemySequence = SKAction.sequence([moveRainbowEnemy, deleteRainbowEnemy, getRetarted])
-        
-        if currentGameState == gameState.inGame {
-            rainbowEnemy.runAction(rainbowEnemySequence)
-        }
         
     }
     
