@@ -47,7 +47,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let loseSound = SKAction.playSoundFileNamed("lose.wav", waitForCompletion: false)
     
     var enableRapidFire : Bool = false
-    var heldDown : Bool = false
     var rapidFireTimer = NSTimer()
     var rapidFireTimerValue: Int = 0
     
@@ -57,8 +56,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         static let Player : UInt32 = 0b1 // 1
         static let RapidFire : UInt32 = 0b10 // 2
-        static let Bullet : UInt32 = 0b100 // 4
-        static let Enemy : UInt32 = 0b1000 // 8
+        static let SlowTime : UInt32 = 0b100 // 4
+        static let Bullet : UInt32 = 0b1000 // 8
+        static let Enemy : UInt32 = 0b10000 // 16
     }
     
     // Generates Random Number
@@ -94,7 +94,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bulletBankRefresh = 1
         hitPauseButton = false
         enableRapidFire = false
-        heldDown = false
         rapidFireTimerValue = 0
         
         self.speed = 1
@@ -221,7 +220,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             startNewLevel()
         }
         
-        if gameScore % 2 == 0 {
+        if gameScore % 2 == 0 && enableRapidFire == false{
             spawnRapidFire()
         }
         
@@ -234,6 +233,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func rapidFire(){
         rapidFireTimerValue += 1
         if rapidFireTimerValue < 60{
+            enableRapidFire = true
             fireBullet()
         } else {
             rapidFireTimer.invalidate()
@@ -518,7 +518,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Generates Random Location for Power Up
         let posX = random(min: CGRectGetMinX(gameArea), max: CGRectGetMaxX(gameArea))
-        let posY = random(min: self.size.height - 20, max: 20)
+        let posY = random(min: 20, max: self.size.height - 20)
         
         let position = CGPoint(x: posX - 20, y: posY)
         
@@ -539,15 +539,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func spawnRapidFire(){
         
-        var chance = random(min: 1, max: 3)
-        
-        if chance == 2 {
+        let chance = arc4random_uniform(3)
+        if chance == 1 {
             createRapidFirePowerUp()
-        } else {
-            chance = 0
         }
         
-        chance = random(min: 1, max: 3)
+    }
+    
+    func createSlowMotionPowerUp(){
+        
+        // Generates Random Location
+        let posX = random(min: CGRectGetMinX(gameArea), max: CGRectGetMaxX(gameArea))
+        let posY = random(min: 20, max: self.size.height - 20)
+        
         
     }
     
