@@ -47,8 +47,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let loseSound = SKAction.playSoundFileNamed("lose.wav", waitForCompletion: false)
     
     var enableRapidFire : Bool = false
+    var rapidFireSpawned : Bool = false
     var rapidFireTimer = NSTimer()
     var rapidFireTimerValue: Int = 0
+    
+    var slowMoTimer = NSTimer()
+    var slowMoTimerValue: Int = 0
+    var slowMoSpawned : Bool = false
     
     // Physics Categories
     struct PhysicsCategories {
@@ -89,12 +94,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         
         currentGameState = gameState.inGame
+        
         gameScore = 0
+        
         bulletBank = 0
         bulletBankRefresh = 1
+        
         hitPauseButton = false
+        
         enableRapidFire = false
         rapidFireTimerValue = 0
+        rapidFireSpawned = false
+        
+        slowMoTimerValue = 0
+        slowMoSpawned = false
         
         self.speed = 1
         
@@ -224,20 +237,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             spawnRapidFire()
         }
         
-    }
-    
-    func startRapidFireTimer(){
-        rapidFireTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(GameScene.rapidFire), userInfo: nil, repeats: true)
-    }
-    
-    func rapidFire(){
-        rapidFireTimerValue += 1
-        if rapidFireTimerValue < 60{
-            enableRapidFire = true
-            fireBullet()
-        } else {
-            rapidFireTimer.invalidate()
+        if gameScore % 3 == 0 {
+            spawnSlowMotionPowerUp()
         }
+        
     }
     
     func addBulletBank(){
@@ -256,6 +259,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.removeAllActions()
         rapidFireTimer.invalidate()
+        slowMoTimer.invalidate()
         
         // Stops Bullets in Game Over
         self.enumerateChildNodesWithName("Books"){
@@ -273,12 +277,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.enumerateChildNodesWithName("Bugatti"){
             rainbowEnemy, stop in
             rainbowEnemy.removeAllActions()
-        }
-        
-        // Stops Rainbow Enemy Bullets
-        self.enumerateChildNodesWithName("Money"){
-            rainbowCarBullet, stop in
-            rainbowCarBullet.removeAllActions()
         }
         
         // Goes to Game Over screen
@@ -345,10 +343,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         
-        // Player Gets Rapid Fire Thing
+        // Player Gets Rapid Fire PowerUP
         if body1.categoryBitMask == PhysicsCategories.Player && body2.categoryBitMask == PhysicsCategories.RapidFire{
             
             startRapidFireTimer()
+            
+            body2.node?.removeFromParent()
+            
+        }
+        
+        // Player Get SlowMo PowerUP
+        if body1.categoryBitMask == PhysicsCategories.Player && body2.categoryBitMask == PhysicsCategories.SlowTime {
+            
+            startSlowMoTimer()
             
             body2.node?.removeFromParent()
             
@@ -524,8 +531,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Object Init
         let rapidFirePower = SKSpriteNode(imageNamed: "rapidFirePowerUp")
-        rapidFirePower.name = "RapidFire"
-        rapidFirePower.setScale(0.75)
+        rapidFirePower.setScale(0.5)
         rapidFirePower.position = position
         rapidFirePower.zPosition = 4
         rapidFirePower.physicsBody = SKPhysicsBody(rectangleOfSize: rapidFirePower.size)
@@ -537,11 +543,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func startRapidFireTimer(){
+        rapidFireTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(GameScene.rapidFire), userInfo: nil, repeats: true)
+    }
+    
+    func rapidFire(){
+        rapidFireTimerValue += 1
+        if rapidFireTimerValue < 60{
+            enableRapidFire = true
+            fireBullet()
+        } else {
+            rapidFireTimer.invalidate()
+            rapidFireTimerValue = 0
+            rapidFireSpawned = false
+        }
+    }
+    
     func spawnRapidFire(){
         
         let chance = arc4random_uniform(3)
-        if chance == 1 {
+        if chance == 1 && rapidFireSpawned == false{
             createRapidFirePowerUp()
+            rapidFireSpawned = true
         }
         
     }
@@ -552,7 +575,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let posX = random(min: CGRectGetMinX(gameArea), max: CGRectGetMaxX(gameArea))
         let posY = random(min: 20, max: self.size.height - 20)
         
+        let position = CGPoint(x: posX - 20, y: posY)
         
+        // Creates the PowerUp
+        let slowMoP = SKSpriteNode(imageNamed: "slowTime")
+        slowMoP.setScale(1.5)
+        slowMoP.position = position
+        slowMoP.zPosition = 4
+        slowMoP.physicsBody = SKPhysicsBody(rectangleOfSize: slowMoP.size)
+        slowMoP.physicsBody!.affectedByGravity = false
+        slowMoP.physicsBody!.categoryBitMask = PhysicsCategories.SlowTime
+        slowMoP.physicsBody!.collisionBitMask = PhysicsCategories.None
+        slowMoP.physicsBody!.contactTestBitMask = PhysicsCategories.Player
+        self.addChild(slowMoP)
+        
+    }
+    
+    func spawnSlowMotionPowerUp(){
+        
+        let chance = arc4random_uniform(2)
+        if chance == 1 && slowMoSpawned == false{
+            createSlowMotionPowerUp()
+            slowMoSpawned = true
+        }
+        
+    }
+    
+    func startSlowMoTimer(){
+        slowMoTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.slowMo), userInfo: nil, repeats: true)
+    }
+    
+    func slowMo(){
+        slowMoTimerValue += 1
+        if slowMoTimerValue < 11 {
+            self.speed = 0.25
+        } else {
+            self.speed = 1
+            slowMoSpawned = false
+        }
     }
     
     //Method calls when screen is un-touched
