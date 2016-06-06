@@ -556,6 +556,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             rapidFireTimer.invalidate()
             rapidFireTimerValue = 0
             rapidFireSpawned = false
+            enableRapidFire = false
         }
     }
     
