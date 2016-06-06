@@ -235,11 +235,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             startNewLevel()
         }
         
-        if gameScore % 2 == 0 && enableRapidFire == false{
+        if gameScore % 10 == 0 && enableRapidFire == false{
             spawnRapidFire()
         }
         
-        if gameScore % 3 == 0 && enableSlowMo == false{
+        if gameScore % 5 == 0 && enableSlowMo == false{
             spawnSlowMotionPowerUp()
         }
         
@@ -614,7 +614,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func slowMo(){
         slowMoTimerValue += 1
-        if slowMoTimerValue < 5 {
+        if slowMoTimerValue < 11 {
             slowMoSpawned = true
             enableSlowMo = true
             setGameSpeed(0.5)
