@@ -614,7 +614,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func slowMo(){
         slowMoTimerValue += 1
-        if slowMoTimerValue < 16 {
+        if slowMoTimerValue < 5 {
             slowMoSpawned = true
             enableSlowMo = true
             setGameSpeed(0.5)
