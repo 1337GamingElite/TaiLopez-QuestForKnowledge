@@ -615,10 +615,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func slowMo(){
         slowMoTimerValue += 1
         if slowMoTimerValue < 16 {
+            slowMoSpawned = true
             enableSlowMo = true
             setGameSpeed(0.5)
         } else {
             slowMoTimer.invalidate()
+            slowMoTimerValue = 0
             setGameSpeed(1.0)
             enableSlowMo = false
             slowMoSpawned = false
