@@ -607,7 +607,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func slowMo(){
         slowMoTimerValue += 1
-        if slowMoTimerValue < 11 {
+        if slowMoTimerValue < 21 {
             self.speed = 0.25
         } else {
             self.speed = 1
