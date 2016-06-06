@@ -54,6 +54,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var slowMoTimer = NSTimer()
     var slowMoTimerValue: Int = 0
     var slowMoSpawned : Bool = false
+    var enableSlowMo : Bool = false
     
     // Physics Categories
     struct PhysicsCategories {
@@ -108,6 +109,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         slowMoTimerValue = 0
         slowMoSpawned = false
+        enableSlowMo = false
         
         self.speed = 1
         
@@ -237,7 +239,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             spawnRapidFire()
         }
         
-        if gameScore % 3 == 0 {
+        if gameScore % 3 == 0 && enableSlowMo == false{
             spawnSlowMotionPowerUp()
         }
         
@@ -597,6 +599,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let chance = arc4random_uniform(2)
         if chance == 1 && slowMoSpawned == false{
             createSlowMotionPowerUp()
+            slowMoSpawned = true
         }
         
     }
@@ -605,14 +608,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         slowMoTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.slowMo), userInfo: nil, repeats: true)
     }
     
+    func setGameSpeed(speed: CGFloat){
+        self.speed = speed
+    }
+    
     func slowMo(){
         slowMoTimerValue += 1
         if slowMoTimerValue < 16 {
-            slowMoSpawned = true
-            self.speed = 0.25
+            enableSlowMo = true
+            setGameSpeed(0.5)
         } else {
             slowMoTimer.invalidate()
-            self.speed = 1
+            setGameSpeed(1.0)
+            enableSlowMo = false
             slowMoSpawned = false
         }
     }
