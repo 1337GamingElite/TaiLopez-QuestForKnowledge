@@ -597,7 +597,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let chance = arc4random_uniform(2)
         if chance == 1 && slowMoSpawned == false{
             createSlowMotionPowerUp()
-            slowMoSpawned = true
         }
         
     }
@@ -608,9 +607,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func slowMo(){
         slowMoTimerValue += 1
-        if slowMoTimerValue < 21 {
+        if slowMoTimerValue < 16 {
+            slowMoSpawned = true
             self.speed = 0.25
         } else {
+            slowMoTimer.invalidate()
             self.speed = 1
             slowMoSpawned = false
         }
