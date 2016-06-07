@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
         catch { return print("Cannot find the damn mixtape!") }
         
         bgMusic.numberOfLoops = -1
-        bgMusic.volume = 0.4
+        bgMusic.volume = 0.5
         bgMusic.play()
 
         let scene = MenuScene(size: CGSize(width: 1536, height: 2048))
