@@ -57,6 +57,7 @@ class HowToPlayScene: SKScene{
         limitLabel.fontSize = 50
         limitLabel.fontColor = SKColor.greenColor()
         limitLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.55)
+        limitLabel.zPosition = 1
         self.addChild(limitLabel)
         
         // "How To Die"
@@ -78,7 +79,7 @@ class HowToPlayScene: SKScene{
         self.addChild(johnCenaDeathLabel)
         
         // PLay Game Button
-        playGameButton.text = "Start Playing"
+        playGameButton.text = "Next Page"
         playGameButton.fontSize = 70
         playGameButton.fontColor = SKColor.greenColor()
         playGameButton.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.2)
@@ -95,7 +96,7 @@ class HowToPlayScene: SKScene{
             
             if playGameButton.containsPoint(pointOfTouch){
                 
-                let sceneToMoveTo = GameScene(size: self.size)
+                let sceneToMoveTo = HowToPlayPG2(size: self.size)
                 sceneToMoveTo.scaleMode = self.scaleMode
                 let myTransition = SKTransition.doorsOpenHorizontalWithDuration(1)
                 self.view!.presentScene(sceneToMoveTo, transition: myTransition)

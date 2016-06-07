@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		521A86651D00E880000C4EE7 /* Game Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 521A86641D00E880000C4EE7 /* Game Launch.storyboard */; };
 		522A8F561CF7308700E4586B /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 522A8F551CF7308700E4586B /* MenuScene.swift */; };
+		526330891D05AC17009A2232 /* HowToPlayPG2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526330881D05AC17009A2232 /* HowToPlayPG2.swift */; };
+		5263308B1D065874009A2232 /* backingAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5263308A1D065874009A2232 /* backingAudio.mp3 */; };
 		529A8DA51CF7803900F14120 /* HowToPlayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529A8DA41CF7803900F14120 /* HowToPlayScene.swift */; };
 		529A8DA71CF7872A00F14120 /* LemonMilk.otf in Resources */ = {isa = PBXBuildFile; fileRef = 529A8DA61CF7872A00F14120 /* LemonMilk.otf */; };
 		52C651D71CF6592200B394C0 /* Lobster 1.4.otf in Resources */ = {isa = PBXBuildFile; fileRef = 52C651D61CF6592200B394C0 /* Lobster 1.4.otf */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		521A86641D00E880000C4EE7 /* Game Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Game Launch.storyboard"; path = "Tai Lopez - A Quest for Knowledge/Game Launch.storyboard"; sourceTree = "<group>"; };
 		522A8F551CF7308700E4586B /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		526330881D05AC17009A2232 /* HowToPlayPG2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayPG2.swift; sourceTree = "<group>"; };
+		5263308A1D065874009A2232 /* backingAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backingAudio.mp3; sourceTree = "<group>"; };
 		529A8DA41CF7803900F14120 /* HowToPlayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowToPlayScene.swift; sourceTree = "<group>"; };
 		529A8DA61CF7872A00F14120 /* LemonMilk.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LemonMilk.otf; sourceTree = "<group>"; };
 		52C651D61CF6592200B394C0 /* Lobster 1.4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lobster 1.4.otf"; sourceTree = "<group>"; };
@@ -126,11 +130,13 @@
 				52C651D81CF668DE00B394C0 /* GameOverScene.swift */,
 				522A8F551CF7308700E4586B /* MenuScene.swift */,
 				529A8DA41CF7803900F14120 /* HowToPlayScene.swift */,
+				526330881D05AC17009A2232 /* HowToPlayPG2.swift */,
 				52D56EA91CF51CD6002E1CE8 /* GameViewController.swift */,
 				52D56ED51CF52D96002E1CE8 /* bulletsound.wav */,
 				52C651D61CF6592200B394C0 /* Lobster 1.4.otf */,
 				529A8DA61CF7872A00F14120 /* LemonMilk.otf */,
 				52C750691CF5DC050043D33B /* bulletHit.wav */,
+				5263308A1D065874009A2232 /* backingAudio.mp3 */,
 				52C7506B1CF5DC0B0043D33B /* lose.wav */,
 				52D56EAB1CF51CD6002E1CE8 /* Main.storyboard */,
 				52D56EAE1CF51CD6002E1CE8 /* Assets.xcassets */,
@@ -270,6 +276,7 @@
 				529A8DA71CF7872A00F14120 /* LemonMilk.otf in Resources */,
 				52D56EA61CF51CD6002E1CE8 /* GameScene.sks in Resources */,
 				52C7506C1CF5DC0B0043D33B /* lose.wav in Resources */,
+				5263308B1D065874009A2232 /* backingAudio.mp3 in Resources */,
 				52C651D71CF6592200B394C0 /* Lobster 1.4.otf in Resources */,
 				52D56EB21CF51CD6002E1CE8 /* LaunchScreen.storyboard in Resources */,
 				52D56EAF1CF51CD6002E1CE8 /* Assets.xcassets in Resources */,
@@ -303,6 +310,7 @@
 				52D56EAA1CF51CD6002E1CE8 /* GameViewController.swift in Sources */,
 				522A8F561CF7308700E4586B /* MenuScene.swift in Sources */,
 				52C651D91CF668DE00B394C0 /* GameOverScene.swift in Sources */,
+				526330891D05AC17009A2232 /* HowToPlayPG2.swift in Sources */,
 				529A8DA51CF7803900F14120 /* HowToPlayScene.swift in Sources */,
 				52D56EA41CF51CD6002E1CE8 /* AppDelegate.swift in Sources */,
 			);
