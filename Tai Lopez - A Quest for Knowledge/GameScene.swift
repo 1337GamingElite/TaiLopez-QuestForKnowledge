@@ -38,8 +38,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var bulletBankRefresh = NSTimeInterval()
     let bulletBankLabel = SKLabelNode(fontNamed: "LemonMilk")
     
-    // MARK: Player Sprite Initialization
+    // MARK: Player & Bullet Sprite Initialization
     let player = SKSpriteNode(imageNamed: "player")
+    let bullet = SKSpriteNode(imageNamed: "bullet")
     
     // MARK: Pause Variables
     var hitPauseButton: Bool = false
@@ -73,9 +74,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         static let None : UInt32 = 0
         
         static let Player : UInt32 = 0b1 // 1
+        
         static let RapidFire : UInt32 = 0b10 // 2
         static let SlowTime : UInt32 = 0b100 // 4
+        
         static let Bullet : UInt32 = 0b1000 // 8
+        
         static let Enemy : UInt32 = 0b10000 // 16
     }
     
@@ -489,7 +493,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func fireBullet(){
         
         // Bullet Init
-        let bullet = SKSpriteNode(imageNamed: "bullet")
         bullet.name = "Books"
         bullet.setScale(1.5)
         bullet.position = CGPoint(x: player.position.x - 70, y: player.position.y)
