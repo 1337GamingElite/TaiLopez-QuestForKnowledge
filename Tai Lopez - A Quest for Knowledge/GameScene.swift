@@ -8,6 +8,17 @@
 
 import SpriteKit
 import Foundation
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 // Asset Initialization for use in All Classes
 var gameScore = 0
@@ -35,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Bullet Bank Variables
     var bulletBank = 0
-    var bulletBankRefresh = NSTimeInterval()
+    var bulletBankRefresh = TimeInterval()
     let bulletBankLabel = SKLabelNode(fontNamed: "LemonMilk")
     
     // MARK: Player & Bullet Sprite Initialization
@@ -56,13 +67,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // MARK: Rapid Fire Variables
     var enableRapidFire : Bool = false
     var rapidFireSpawned : Bool = false
-    var rapidFireTimer = NSTimer()
+    var rapidFireTimer = Timer()
     var rapidFireTimerValue: Int = 0
     var rapidTimerRunning : Bool = false
     var currentRapidTimer : Int = 0
     
     // MARK: Slow Motion Variables
-    var slowMoTimer = NSTimer()
+    var slowMoTimer = Timer()
     var slowMoTimerValue: Int = 0
     var slowMoSpawned : Bool = false
     var enableSlowMo : Bool = false
@@ -87,7 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func random() -> CGFloat{
         return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
     }
-    func random(min min: CGFloat, max: CGFloat) -> CGFloat {
+    func random(min: CGFloat, max: CGFloat) -> CGFloat {
         return random() * (max - min) + min
     }
     
@@ -108,7 +119,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: Runs when Scene Loads
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
         currentGameState = gameState.inGame
         
@@ -146,7 +157,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.2)
         //Layering
         player.zPosition = 2
-        player.physicsBody = SKPhysicsBody(rectangleOfSize: player.size)
+        player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody!.affectedByGravity = false
         player.physicsBody!.categoryBitMask = PhysicsCategories.Player
         player.physicsBody!.collisionBitMask = PhysicsCategories.None
@@ -156,8 +167,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // MARK: Score Label
         scoreLabel.text = "Score: 0"
         scoreLabel.fontSize = 50
-        scoreLabel.fontColor = SKColor.greenColor()
-        scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+        scoreLabel.fontColor = SKColor.green
+        scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         scoreLabel.position = CGPoint(x: self.size.width * 0.15, y: self.size.height * 0.95)
         scoreLabel.zPosition = 100
         self.addChild(scoreLabel)
@@ -165,8 +176,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // MARK: Lives Label
         knowledgeLabel.text = "Knowledge Left: 3"
         knowledgeLabel.fontSize = 50
-        knowledgeLabel.fontColor = SKColor.greenColor()
-        knowledgeLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Right
+        knowledgeLabel.fontColor = SKColor.green
+        knowledgeLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
         knowledgeLabel.position = CGPoint(x: self.size.width * 0.85, y: self.size.height * 0.03)
         knowledgeLabel.zPosition = 100
         self.addChild(knowledgeLabel)
@@ -174,8 +185,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // MARK: Bullet Count Label
         bulletBankLabel.text = "Bullets Left: 0"
         bulletBankLabel.fontSize = 50
-        bulletBankLabel.fontColor = SKColor.greenColor()
-        bulletBankLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Left
+        bulletBankLabel.fontColor = SKColor.green
+        bulletBankLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
         bulletBankLabel.position = CGPoint(x: self.size.width * 0.15, y: self.size.height * 0.03)
         bulletBankLabel.zPosition = 100
         self.addChild(bulletBankLabel)
@@ -194,17 +205,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // MARK: "Paused" Text
         pauseText.text = "PAUSED"
         pauseText.fontSize = 100
-        pauseText.fontColor = SKColor.greenColor()
-        pauseText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.Center
-        pauseText.verticalAlignmentMode = SKLabelVerticalAlignmentMode.Center
+        pauseText.fontColor = SKColor.green
+        pauseText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        pauseText.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         pauseText.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         pauseText.zPosition = 100
         
         // MARK: Change Bullet Count
-        let waitTime = SKAction.waitForDuration(bulletBankRefresh)
-        let addToBulletBank = SKAction.runBlock(addBulletBank)
+        let waitTime = SKAction.wait(forDuration: bulletBankRefresh)
+        let addToBulletBank = SKAction.run(addBulletBank)
         let bulletCountSequence = SKAction.sequence([waitTime, addToBulletBank])
-        self.runAction(SKAction.repeatActionForever(bulletCountSequence))
+        self.run(SKAction.repeatForever(bulletCountSequence))
         
         startNewLevel()
         
@@ -254,11 +265,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         knowledgeNumber -= 1
         knowledgeLabel.text = "Knowledge Left: \(knowledgeNumber)"
         
-        let scaleUp = SKAction.scaleTo(1.5, duration: 0.2)
-        let scaleDown = SKAction.scaleTo(1, duration: 0.2)
+        let scaleUp = SKAction.scale(to: 1.5, duration: 0.2)
+        let scaleDown = SKAction.scale(to: 1, duration: 0.2)
         let dumberSequence = SKAction.sequence([scaleUp, scaleDown])
         
-        knowledgeLabel.runAction(dumberSequence)
+        knowledgeLabel.run(dumberSequence)
         
         if knowledgeNumber == 0 {
             gameOver()
@@ -305,41 +316,41 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         slowMoTimer.invalidate()
         
         // Stops Bullets in Game Over
-        self.enumerateChildNodesWithName("Books"){
+        self.enumerateChildNodes(withName: "Books"){
             bullet, stop in
             bullet.removeAllActions()
         }
         
         // Stops Enemies in Game Over
-        self.enumerateChildNodesWithName("Lamborghini"){
+        self.enumerateChildNodes(withName: "Lamborghini"){
             enemy, stop in
             enemy.removeAllActions()
         }
         
         // Stops Rainbow Enemy
-        self.enumerateChildNodesWithName("Bugatti"){
+        self.enumerateChildNodes(withName: "Bugatti"){
             rainbowEnemy, stop in
             rainbowEnemy.removeAllActions()
         }
         
         // Goes to Game Over screen
-        let changeSceneAction = SKAction.runBlock(changeScene)
-        let waitToChangeScene = SKAction.waitForDuration(1.5)
+        let changeSceneAction = SKAction.run(changeScene)
+        let waitToChangeScene = SKAction.wait(forDuration: 1.5)
         let changeSceneSequence = SKAction.sequence([waitToChangeScene, changeSceneAction])
-        self.runAction(changeSceneSequence)
+        self.run(changeSceneSequence)
         
     }
     func changeScene(){
         
         let sceneToMoveTo = GameOverScene(size: self.size)
         sceneToMoveTo.scaleMode = self.scaleMode
-        let myTransition = SKTransition.doorsCloseHorizontalWithDuration(1)
+        let myTransition = SKTransition.doorsCloseHorizontal(withDuration: 1)
         self.view!.presentScene(sceneToMoveTo, transition: myTransition)
         
     }
     
     // MARK: Collision Detection
-    func didBeginContact(contact: SKPhysicsContact) {
+    func didBegin(_ contact: SKPhysicsContact) {
         
         var body1 = SKPhysicsBody()
         var body2 = SKPhysicsBody()
@@ -406,7 +417,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: Explosion Effects
-    func spawnKnowlegdePoint(spawnPosition: CGPoint){
+    func spawnKnowlegdePoint(_ spawnPosition: CGPoint){
         
         let explosion = SKSpriteNode(imageNamed: "explosion")
         explosion.position = spawnPosition
@@ -414,15 +425,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion.setScale(0)
         self.addChild(explosion)
         
-        let scaleIn = SKAction.scaleTo(3, duration: 0.1)
-        let fadeOut = SKAction.fadeOutWithDuration(0.1)
+        let scaleIn = SKAction.scale(to: 3, duration: 0.1)
+        let fadeOut = SKAction.fadeOut(withDuration: 0.1)
         let delete = SKAction.removeFromParent()
         
         let explosionSequence = SKAction.sequence([bulletHit, scaleIn, fadeOut, delete])
-        explosion.runAction(explosionSequence)
+        explosion.run(explosionSequence)
         
     }
-    func spawnKnowlegdeLose(spawnPosition: CGPoint){
+    func spawnKnowlegdeLose(_ spawnPosition: CGPoint){
         
         let explosion = SKSpriteNode(imageNamed: "explosion")
         explosion.position = spawnPosition
@@ -430,12 +441,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         explosion.setScale(0)
         self.addChild(explosion)
         
-        let scaleIn = SKAction.scaleTo(3, duration: 0.1)
-        let fadeOut = SKAction.fadeOutWithDuration(0.1)
+        let scaleIn = SKAction.scale(to: 3, duration: 0.1)
+        let fadeOut = SKAction.fadeOut(withDuration: 0.1)
         let delete = SKAction.removeFromParent()
         
         let explosionSequence = SKAction.sequence([loseSound, scaleIn, fadeOut, delete])
-        explosion.runAction(explosionSequence)
+        explosion.run(explosionSequence)
         
     }
 
@@ -444,11 +455,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         levelNumber += 1
         
-        if self.actionForKey("spawningEnemies") != nil {
-            self.removeActionForKey("spawningEnemies")
+        if self.action(forKey: "spawningEnemies") != nil {
+            self.removeAction(forKey: "spawningEnemies")
         }
         
-        var lvlDuration = NSTimeInterval()
+        var lvlDuration = TimeInterval()
         
         // Enemy Spawn Duration every Lvl
         switch levelNumber {
@@ -478,14 +489,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // Spawns Enemy
-        let spawn = SKAction.runBlock(spawnEnemy)
+        let spawn = SKAction.run(spawnEnemy)
         // Spawn Wait Time
-        let waitToSpawn = SKAction.waitForDuration(lvlDuration)
+        let waitToSpawn = SKAction.wait(forDuration: lvlDuration)
         
         let spawnSequence = SKAction.sequence([waitToSpawn, spawn])
-        let spawnForever = SKAction.repeatActionForever(spawnSequence)
+        let spawnForever = SKAction.repeatForever(spawnSequence)
         
-        self.runAction(spawnForever, withKey: "spawningEnemies")
+        self.run(spawnForever, withKey: "spawningEnemies")
         
     }
     
@@ -497,7 +508,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bullet.setScale(1.5)
         bullet.position = CGPoint(x: player.position.x - 70, y: player.position.y)
         bullet.zPosition = 1
-        bullet.physicsBody = SKPhysicsBody(rectangleOfSize: bullet.size)
+        bullet.physicsBody = SKPhysicsBody(rectangleOf: bullet.size)
         bullet.physicsBody!.affectedByGravity = false
         bullet.physicsBody!.categoryBitMask = PhysicsCategories.Bullet
         bullet.physicsBody!.collisionBitMask = PhysicsCategories.None
@@ -505,14 +516,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(bullet)
         
         // Moves Bullet
-        let moveBullet = SKAction.moveToY(self.size.height + bullet.size.height, duration: 1)
+        let moveBullet = SKAction.moveTo(y: self.size.height + bullet.size.height, duration: 1)
         
         // Deletes Bullet
         let deleteBullet = SKAction.removeFromParent()
         
         let bulletSequence = SKAction.sequence([bulletSound, moveBullet, deleteBullet])
         
-        bullet.runAction(bulletSequence)
+        bullet.run(bulletSequence)
         
     }
     
@@ -520,8 +531,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func spawnEnemy(){
         
         //Location Generation
-        let randomXStart = random(min: CGRectGetMinX(gameArea), max: CGRectGetMaxX(gameArea))
-        let randomXEnd = random(min: CGRectGetMinX(gameArea), max: CGRectGetMaxX(gameArea))
+        let randomXStart = random(min: gameArea.minX, max: gameArea.maxX)
+        let randomXEnd = random(min: gameArea.minX, max: gameArea.maxX)
         
         let startPoint = CGPoint(x: randomXStart, y: self.size.height * 1.2)
         let endPoint = CGPoint(x: randomXEnd, y: -self.size.height * 0.2)
@@ -532,7 +543,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.setScale(1.5)
         enemy.position = startPoint
         enemy.zPosition = 2
-        enemy.physicsBody = SKPhysicsBody(rectangleOfSize: enemy.size)
+        enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
         enemy.physicsBody!.affectedByGravity = false
         enemy.physicsBody!.categoryBitMask = PhysicsCategories.Enemy
         enemy.physicsBody!.collisionBitMask = PhysicsCategories.None
@@ -540,16 +551,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(enemy)
         
         // Movement
-        let moveEnemy = SKAction.moveTo(endPoint, duration: 2)
+        let moveEnemy = SKAction.move(to: endPoint, duration: 2)
         // Deletes enemy
         let deleteEnemy = SKAction.removeFromParent()
         // Loses Knowledge
-        let getRetarded = SKAction.runBlock(getDumber)
+        let getRetarded = SKAction.run(getDumber)
         
         let enemySequence = SKAction.sequence([moveEnemy, deleteEnemy, getRetarded])
         
         if currentGameState == gameState.inGame {
-            enemy.runAction(enemySequence)
+            enemy.run(enemySequence)
         }
         
         // Rotates Enemy
@@ -564,7 +575,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createRapidFirePowerUp(){
         
         // Generates Random Location for Power Up
-        let posX = random(min: CGRectGetMinX(gameArea), max: CGRectGetMaxX(gameArea))
+        let posX = random(min: gameArea.minX, max: gameArea.maxX)
         let posY = random(min: 20, max: self.size.height - 20)
         
         let position = CGPoint(x: posX - 20, y: posY)
@@ -574,7 +585,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rapidFirePower.setScale(0.5)
         rapidFirePower.position = position
         rapidFirePower.zPosition = 4
-        rapidFirePower.physicsBody = SKPhysicsBody(rectangleOfSize: rapidFirePower.size)
+        rapidFirePower.physicsBody = SKPhysicsBody(rectangleOf: rapidFirePower.size)
         rapidFirePower.physicsBody!.affectedByGravity = false
         rapidFirePower.physicsBody!.categoryBitMask = PhysicsCategories.RapidFire
         rapidFirePower.physicsBody!.collisionBitMask = PhysicsCategories.None
@@ -585,7 +596,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: Rapid Fire Functions
     func startRapidFireTimer(){
-        rapidFireTimer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: #selector(GameScene.rapidFire), userInfo: nil, repeats: true)
+        rapidFireTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(GameScene.rapidFire), userInfo: nil, repeats: true)
         rapidTimerRunning = true
     }
     func rapidFire(){
@@ -615,7 +626,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func createSlowMotionPowerUp(){
         
         // Generates Random Location
-        let posX = random(min: CGRectGetMinX(gameArea), max: CGRectGetMaxX(gameArea))
+        let posX = random(min: gameArea.minX, max: gameArea.maxX)
         let posY = random(min: 20, max: self.size.height - 20)
         
         let position = CGPoint(x: posX - 20, y: posY)
@@ -625,7 +636,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         slowMoP.setScale(1.5)
         slowMoP.position = position
         slowMoP.zPosition = 4
-        slowMoP.physicsBody = SKPhysicsBody(rectangleOfSize: slowMoP.size)
+        slowMoP.physicsBody = SKPhysicsBody(rectangleOf: slowMoP.size)
         slowMoP.physicsBody!.affectedByGravity = false
         slowMoP.physicsBody!.categoryBitMask = PhysicsCategories.SlowTime
         slowMoP.physicsBody!.collisionBitMask = PhysicsCategories.None
@@ -643,10 +654,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     func startSlowMoTimer(){
-        slowMoTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(GameScene.slowMo), userInfo: nil, repeats: true)
+        slowMoTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(GameScene.slowMo), userInfo: nil, repeats: true)
         slowTimerRunning = true
     }
-    func setGameSpeed(speed: CGFloat){
+    func setGameSpeed(_ speed: CGFloat){
         self.speed = speed
     }
     func slowMo(){
@@ -666,13 +677,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: Method calls when screen is touched
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch: AnyObject in touches{
             
-            let pointOfTouch = touch.locationInNode(self)
+            let pointOfTouch = touch.location(in: self)
             
-            if pauseButton.containsPoint(pointOfTouch){
+            if pauseButton.contains(pointOfTouch){
                 if hitPauseButton == false{
                     pauseGame()
                 } else {
@@ -682,7 +693,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
          
             // Checks if the game is still going + Checks if there are bullets in bullet bank + Checks if not touching Tai Lopez
             if currentGameState == gameState.inGame && bulletBank != 0 && self.speed != 0
-                && !pauseButton.containsPoint(pointOfTouch) && !player.containsPoint(pointOfTouch) && !enableRapidFire{
+                && !pauseButton.contains(pointOfTouch) && !player.contains(pointOfTouch) && !enableRapidFire{
                 fireBullet()
                 removeBulletBank()
             }
@@ -692,12 +703,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: Runs when touch moves / Player Movement
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     
         for touch: AnyObject in touches{
             
-            let pointOfTouch = touch.locationInNode(self)
-            let previousPointofTouch = touch.previousLocationInNode(self)
+            let pointOfTouch = touch.location(in: self)
+            let previousPointofTouch = touch.previousLocation(in: self)
             
             let amountDraggedX = pointOfTouch.x - previousPointofTouch.x
             let amountDraggedY = pointOfTouch.y - previousPointofTouch.y
@@ -709,12 +720,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             
             // Prevents Player from Going Of Screen
-            if player.position.x > CGRectGetMaxX(gameArea) - player.size.width / 2{
-                player.position.x = CGRectGetMaxX(gameArea) - player.size.width / 2
+            if player.position.x > gameArea.maxX - player.size.width / 2{
+                player.position.x = gameArea.maxX - player.size.width / 2
             }
             
-            if player.position.x < CGRectGetMinX(gameArea) + player.size.width / 2{
-                player.position.x = CGRectGetMinX(gameArea) + player.size.width / 2
+            if player.position.x < gameArea.minX + player.size.width / 2{
+                player.position.x = gameArea.minX + player.size.width / 2
             }
             
             if player.position.y > self.size.height + player.size.height / 2{

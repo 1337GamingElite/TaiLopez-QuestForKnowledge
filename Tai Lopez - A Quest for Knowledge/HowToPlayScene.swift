@@ -13,7 +13,7 @@ class HowToPlayScene: SKScene{
     
     let playGameButton = SKLabelNode(fontNamed: "LemonMilk")
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
         currentGameState = gameState.preGame
         
@@ -28,7 +28,7 @@ class HowToPlayScene: SKScene{
         let tutorialLabel = SKLabelNode(fontNamed: "Lobster1.4")
         tutorialLabel.text = "How to Play"
         tutorialLabel.fontSize = 180
-        tutorialLabel.fontColor = SKColor.greenColor()
+        tutorialLabel.fontColor = SKColor.green
         tutorialLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.75)
         tutorialLabel.zPosition = 1
         self.addChild(tutorialLabel)
@@ -37,7 +37,7 @@ class HowToPlayScene: SKScene{
         let movementLabel = SKLabelNode(fontNamed: "LemonMilk")
         movementLabel.text = "To move Tai Lopez, swipe left, right, up, or down."
         movementLabel.fontSize = 50
-        movementLabel.fontColor = SKColor.greenColor()
+        movementLabel.fontColor = SKColor.green
         movementLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.65)
         movementLabel.zPosition = 1
         self.addChild(movementLabel)
@@ -46,7 +46,7 @@ class HowToPlayScene: SKScene{
         let shootLabel = SKLabelNode(fontNamed: "LemonMilk")
         shootLabel.text = "To shoot, simply tap the screen."
         shootLabel.fontSize = 50
-        shootLabel.fontColor = SKColor.greenColor()
+        shootLabel.fontColor = SKColor.green
         shootLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.60)
         shootLabel.zPosition = 1
         self.addChild(shootLabel)
@@ -55,7 +55,7 @@ class HowToPlayScene: SKScene{
         let limitLabel = SKLabelNode(fontNamed: "LemonMilk")
         limitLabel.text = "Remember, your bullets recharge over time"
         limitLabel.fontSize = 50
-        limitLabel.fontColor = SKColor.greenColor()
+        limitLabel.fontColor = SKColor.green
         limitLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.55)
         limitLabel.zPosition = 1
         self.addChild(limitLabel)
@@ -64,7 +64,7 @@ class HowToPlayScene: SKScene{
         let deathLabel = SKLabelNode(fontNamed: "LemonMilk")
         deathLabel.text = "You lose lives by missing targets."
         deathLabel.fontSize = 50
-        deathLabel.fontColor = SKColor.greenColor()
+        deathLabel.fontColor = SKColor.green
         deathLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         deathLabel.zPosition = 1
         self.addChild(deathLabel)
@@ -73,7 +73,7 @@ class HowToPlayScene: SKScene{
         let johnCenaDeathLabel = SKLabelNode(fontNamed: "LemonMilk")
         johnCenaDeathLabel.text = "You get instant K.O'd if you get hit by Lamborghinis."
         johnCenaDeathLabel.fontSize = 40
-        johnCenaDeathLabel.fontColor = SKColor.greenColor()
+        johnCenaDeathLabel.fontColor = SKColor.green
         johnCenaDeathLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.45)
         johnCenaDeathLabel.zPosition = 1
         self.addChild(johnCenaDeathLabel)
@@ -81,24 +81,24 @@ class HowToPlayScene: SKScene{
         // PLay Game Button
         playGameButton.text = "Next Page"
         playGameButton.fontSize = 70
-        playGameButton.fontColor = SKColor.greenColor()
+        playGameButton.fontColor = SKColor.green
         playGameButton.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.2)
         playGameButton.zPosition = 1
         self.addChild(playGameButton)
     
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch: AnyObject in touches{
             
-            let pointOfTouch = touch.locationInNode(self)
+            let pointOfTouch = touch.location(in: self)
             
-            if playGameButton.containsPoint(pointOfTouch){
+            if playGameButton.contains(pointOfTouch){
                 
                 let sceneToMoveTo = HowToPlayPG2(size: self.size)
                 sceneToMoveTo.scaleMode = self.scaleMode
-                let myTransition = SKTransition.doorsOpenHorizontalWithDuration(1)
+                let myTransition = SKTransition.doorsOpenHorizontal(withDuration: 1)
                 self.view!.presentScene(sceneToMoveTo, transition: myTransition)
                 
             }

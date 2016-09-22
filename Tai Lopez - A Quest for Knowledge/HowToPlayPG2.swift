@@ -14,7 +14,7 @@ class HowToPlayPG2: SKScene {
     let prevPage = SKLabelNode(fontNamed: "LemonMilk")
     let playGame = SKLabelNode(fontNamed: "LemonMilk")
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
         currentGameState = gameState.preGame
         
@@ -29,7 +29,7 @@ class HowToPlayPG2: SKScene {
         let powerTitle = SKLabelNode(fontNamed: "Lobster1.4")
         powerTitle.text = "Power Ups"
         powerTitle.fontSize = 150
-        powerTitle.fontColor = SKColor.magentaColor()
+        powerTitle.fontColor = SKColor.magenta
         powerTitle.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.75)
         powerTitle.zPosition = 1
         self.addChild(powerTitle)
@@ -38,7 +38,7 @@ class HowToPlayPG2: SKScene {
         let subTitle = SKLabelNode(fontNamed: "LemonMilk")
         subTitle.text = "You can find PowerUPs while you play."
         subTitle.fontSize = 50
-        subTitle.fontColor = SKColor.magentaColor()
+        subTitle.fontColor = SKColor.magenta
         subTitle.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.65)
         subTitle.zPosition = 1
         self.addChild(subTitle)
@@ -47,7 +47,7 @@ class HowToPlayPG2: SKScene {
         let powerUpIntro = SKLabelNode(fontNamed: "LemonMilk")
         powerUpIntro.text = "These powerups are:"
         powerUpIntro.fontSize = 50
-        powerUpIntro.fontColor = SKColor.magentaColor()
+        powerUpIntro.fontColor = SKColor.magenta
         powerUpIntro.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.60)
         powerUpIntro.zPosition = 1
         self.addChild(powerUpIntro)
@@ -62,7 +62,7 @@ class HowToPlayPG2: SKScene {
         let rapidFireLabel = SKLabelNode(fontNamed: "LemonMilk")
         rapidFireLabel.text = "- Rapid Fire"
         rapidFireLabel.fontSize = 70
-        rapidFireLabel.fontColor = SKColor.magentaColor()
+        rapidFireLabel.fontColor = SKColor.magenta
         rapidFireLabel.position = CGPoint(x: self.size.width * 0.6, y: rapidFire.position.y - 30)
         rapidFireLabel.zPosition = 1
         self.addChild(rapidFireLabel)
@@ -78,7 +78,7 @@ class HowToPlayPG2: SKScene {
         let slowMoLabel = SKLabelNode(fontNamed: "LemonMilk")
         slowMoLabel.text = "- Slow Motion"
         slowMoLabel.fontSize = 70
-        slowMoLabel.fontColor = SKColor.magentaColor()
+        slowMoLabel.fontColor = SKColor.magenta
         slowMoLabel.position = CGPoint(x: self.size.width * 0.625, y: slowMo.position.y - 30)
         slowMoLabel.zPosition = 1
         self.addChild(slowMoLabel)
@@ -86,7 +86,7 @@ class HowToPlayPG2: SKScene {
         // PrevPage
         prevPage.text = "Previous Page"
         prevPage.fontSize = 70
-        prevPage.fontColor = SKColor.magentaColor()
+        prevPage.fontColor = SKColor.magenta
         prevPage.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.15)
         prevPage.zPosition = 1
         self.addChild(prevPage)
@@ -94,31 +94,31 @@ class HowToPlayPG2: SKScene {
         // Play Game
         playGame.text = "Play Game"
         playGame.fontSize = 70
-        playGame.fontColor = SKColor.magentaColor()
+        playGame.fontColor = SKColor.magenta
         playGame.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.1)
         playGame.zPosition = 1
         self.addChild(playGame)
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch: AnyObject in touches {
             
-            let pointOfTouch = touch.locationInNode(self)
+            let pointOfTouch = touch.location(in: self)
             
-            if prevPage.containsPoint(pointOfTouch) {
+            if prevPage.contains(pointOfTouch) {
                 
                 let sceneToMoveTo = HowToPlayScene(size: self.size)
                 sceneToMoveTo.scaleMode = self.scaleMode
-                let myTransition = SKTransition.doorsCloseHorizontalWithDuration(1)
+                let myTransition = SKTransition.doorsCloseHorizontal(withDuration: 1)
                 self.view!.presentScene(sceneToMoveTo, transition: myTransition)
                 
-            } else if playGame.containsPoint(pointOfTouch) {
+            } else if playGame.contains(pointOfTouch) {
                 
                 let sceneToMoveTo = GameScene(size: self.size)
                 sceneToMoveTo.scaleMode = self.scaleMode
-                let myTransition = SKTransition.doorsOpenHorizontalWithDuration(1)
+                let myTransition = SKTransition.doorsOpenHorizontal(withDuration: 1)
                 self.view!.presentScene(sceneToMoveTo, transition: myTransition)
                 
             }

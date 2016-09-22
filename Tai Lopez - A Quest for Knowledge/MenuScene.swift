@@ -14,7 +14,7 @@ class MenuScene: SKScene {
     let playButton = SKLabelNode(fontNamed: "LemonMilk")
     let viewInstructions = SKLabelNode(fontNamed: "LemonMilk")
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
         currentGameState = gameState.preGame
         
@@ -29,7 +29,7 @@ class MenuScene: SKScene {
         let titleLabel = SKLabelNode(fontNamed: "Lobster1.4")
         titleLabel.text = "Tai Lopez"
         titleLabel.fontSize = 190
-        titleLabel.fontColor = SKColor.magentaColor()
+        titleLabel.fontColor = SKColor.magenta
         titleLabel.position = CGPoint(x: self.size.width * 0.5, y: self.size.height * 0.7)
         titleLabel.zPosition = 1
         self.addChild(titleLabel)
@@ -38,7 +38,7 @@ class MenuScene: SKScene {
         let subtitleLabel = SKLabelNode(fontNamed: "Lobster1.4")
         subtitleLabel.text = "A Quest for Knowledge!"
         subtitleLabel.fontSize = 120
-        subtitleLabel.fontColor = SKColor.magentaColor()
+        subtitleLabel.fontColor = SKColor.magenta
         subtitleLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.6)
         subtitleLabel.zPosition = 1
         self.addChild(subtitleLabel)
@@ -46,7 +46,7 @@ class MenuScene: SKScene {
         // Play Button
         playButton.text = "Start Game"
         playButton.fontSize = 70
-        playButton.fontColor = SKColor.magentaColor()
+        playButton.fontColor = SKColor.magenta
         playButton.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.25)
         playButton.zPosition = 1
         self.addChild(playButton)
@@ -54,31 +54,31 @@ class MenuScene: SKScene {
         // How to Play Button
         viewInstructions.text = "How to Play"
         viewInstructions.fontSize = 70
-        viewInstructions.fontColor = SKColor.magentaColor()
+        viewInstructions.fontColor = SKColor.magenta
         viewInstructions.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.2)
         viewInstructions.zPosition = 1
         self.addChild(viewInstructions)
         
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch: AnyObject in touches {
             
-            let pointOfTouch = touch.locationInNode(self)
+            let pointOfTouch = touch.location(in: self)
             
-            if playButton.containsPoint(pointOfTouch) {
+            if playButton.contains(pointOfTouch) {
                 
                 let sceneToMoveTo = GameScene(size: self.size)
                 sceneToMoveTo.scaleMode = self.scaleMode
-                let myTransition = SKTransition.doorsOpenHorizontalWithDuration(1)
+                let myTransition = SKTransition.doorsOpenHorizontal(withDuration: 1)
                 self.view!.presentScene(sceneToMoveTo, transition: myTransition)
                 
-            } else if viewInstructions.containsPoint(pointOfTouch){
+            } else if viewInstructions.contains(pointOfTouch){
                 
                 let sceneToMoveTo = HowToPlayScene(size: self.size)
                 sceneToMoveTo.scaleMode = self.scaleMode
-                let myTransistion = SKTransition.doorsOpenHorizontalWithDuration(1)
+                let myTransistion = SKTransition.doorsOpenHorizontal(withDuration: 1)
                 self.view!.presentScene(sceneToMoveTo, transition: myTransistion)
                 
             }
