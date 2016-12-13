@@ -59,6 +59,15 @@ class MenuScene: SKScene {
         viewInstructions.zPosition = 1
         self.addChild(viewInstructions)
         
+        // Made By Label
+        let madeByLabel = SKLabelNode(fontNamed: "LemonMilk")
+        madeByLabel.text = "Made By: John Marcus Mabanta"
+        madeByLabel.fontSize = 65
+        madeByLabel.fontColor = SKColor.magenta
+        madeByLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height * 0.02)
+        madeByLabel.zPosition = 1
+        self.addChild(madeByLabel)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
