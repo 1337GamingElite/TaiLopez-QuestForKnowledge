@@ -233,15 +233,18 @@
 					52D56E9F1CF51CD5002E1CE8 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = S6RE9E846R;
+						LastSwiftMigration = 0810;
 					};
 					52D56EB71CF51CD6002E1CE8 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = S6RE9E846R;
+						LastSwiftMigration = 0810;
 						TestTargetID = 52D56E9F1CF51CD5002E1CE8;
 					};
 					52D56EC21CF51CD6002E1CE8 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = S6RE9E846R;
+						LastSwiftMigration = 0810;
 						TestTargetID = 52D56E9F1CF51CD5002E1CE8;
 					};
 				};
@@ -462,6 +465,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1337gamingelte.tailopez;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -476,6 +480,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.1337gamingelte.tailopez;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -489,6 +494,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.1337gamingelite.Tai-Lopez---A-Quest-for-KnowledgeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tai Lopez - A Quest for Knowledge.app/Tai Lopez - A Quest for Knowledge";
 			};
 			name = Debug;
@@ -501,6 +507,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.1337gamingelite.Tai-Lopez---A-Quest-for-KnowledgeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tai Lopez - A Quest for Knowledge.app/Tai Lopez - A Quest for Knowledge";
 			};
 			name = Release;
@@ -513,6 +520,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.1337gamingelite.Tai-Lopez---A-Quest-for-KnowledgeUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Tai Lopez - A Quest for Knowledge";
 			};
 			name = Debug;
@@ -524,6 +532,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.1337gamingelite.Tai-Lopez---A-Quest-for-KnowledgeUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Tai Lopez - A Quest for Knowledge";
 			};
 			name = Release;

@@ -18,10 +18,10 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         // Loads the Background Audio
-        let musicPath = NSBundle.mainBundle().pathForResource("backingAudio", ofType: "mp3")
-        let musicNSURL = NSURL(fileURLWithPath: musicPath!)
+        let musicPath = Bundle.main.path(forResource: "backingAudio", ofType: "mp3")
+        let musicNSURL = URL(fileURLWithPath: musicPath!)
         
-        do { bgMusic = try AVAudioPlayer(contentsOfURL: musicNSURL) }
+        do { bgMusic = try AVAudioPlayer(contentsOf: musicNSURL) }
         catch { return print("Cannot find the damn mixtape!") }
         
         bgMusic.numberOfLoops = -1
@@ -38,21 +38,21 @@ class GameViewController: UIViewController {
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .aspectFill
             
             skView.presentScene(scene)
         
     }
     
-    override func shouldAutorotate() -> Bool {
+    override var shouldAutorotate : Bool {
         return true
     }
 
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return .AllButUpsideDown
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            return .allButUpsideDown
         } else {
-            return .All
+            return .all
         }
     }
 
@@ -61,7 +61,7 @@ class GameViewController: UIViewController {
         // Release any cached data, images, etc that aren't in use.
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
 }
